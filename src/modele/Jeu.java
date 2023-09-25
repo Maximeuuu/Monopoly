@@ -1,4 +1,4 @@
-package java.modele;
+package monopoly.modele;
 
 public class Jeu 
 {

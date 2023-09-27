@@ -17,9 +17,22 @@ public class Joueur
         this.argent = 20_000;
     }
 
-    public static int lancerDes()
+    public boolean payer(Joueur joueur, int prix)
     {
-        int r1 =(int) (1+Math.random()*6);
-        return r1;
+    	if(this.argent < prix)
+    	{
+    		this.joueur.ajouter(this.argent);
+    		this.argent = 0;
+    		return false;
+    	}
+    	
+    	this.argent -= prix;
+    	this.joueur.ajouter(prix);
+    	return true;
+    }
+    
+    public void ajouter(int som)
+    {
+    	this.argent += som;
     }
 }

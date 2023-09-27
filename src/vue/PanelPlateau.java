@@ -1,3 +1,6 @@
+package monopoly.vue;
+import monopoly.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,14 +8,17 @@ import java.awt.event.ActionListener;
 
 public class PanelPlateau extends JPanel implements ActionListener
 {
+	private static String REP_IMAGES = "./../lib/images/";
+	private Controleur ctrl;
+	
 	private Image imgPlateau;
 	private Graphics2D g2;
 	
-	public PanelPlateau()
+	public PanelPlateau( Controleur ctrl )
 	{
+		this.ctrl = ctrl;
 		this.setBackground(Color.WHITE);
-		this.imgPlateau = getToolkit().getImage ( "plateau.png" );
-		
+		this.imgPlateau = getToolkit().getImage ( REP_IMAGES+"plateau.png" );
 	}
 	
 	public void placerPionts() //devra prendre l ensemble des joueurs ou jsp
@@ -32,8 +38,8 @@ public class PanelPlateau extends JPanel implements ActionListener
 		int y= 0;
 		for(int cpt=0; cpt< 9; cpt++)
 		{
-			g.drawImage( getToolkit().getImage ( "jaune.gif" ), 128 + x, 73 + y, 25, 25, this );
-			g.drawImage( getToolkit().getImage ( "rouge.gif" ), 159 + x, 32 + y, 25, 25, this );
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), 128 + x, 73 + y, 25, 25, this );
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), 159 + x, 32 + y, 25, 25, this );
 			x += 61;
 			y += 0;
 		}

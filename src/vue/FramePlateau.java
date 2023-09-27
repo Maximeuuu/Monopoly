@@ -1,3 +1,6 @@
+package monopoly.vue;
+import monopoly.Controleur;
+
 import javax.swing.*;
 import java.awt.BorderLayout;
 
@@ -6,9 +9,12 @@ public class FramePlateau extends JFrame
 	private PanelPlateau plateau;
 	private PanelPropriete propriete;
 	private PanelInfo info;
+	private Controleur ctrl;
 	
-	public FramePlateau()
+	public FramePlateau( Controleur ctrl )
 	{
+		this.ctrl = ctrl;
+		
 		this.setTitle("BocchiPoly");
 		
 		this.setSize(950, 975);
@@ -17,21 +23,16 @@ public class FramePlateau extends JFrame
 		
 		this.setLayout( new BorderLayout() );
 		
-		this.plateau = new PanelPlateau();
+		this.plateau = new PanelPlateau( this.ctrl );
 		this.add( this.plateau, BorderLayout.CENTER );
 		
-		this.propriete = new PanelPropriete();
+		this.propriete = new PanelPropriete( this.ctrl );
 		this.add( this.propriete, BorderLayout.SOUTH );
 		
-		this.info = new PanelInfo();
+		this.info = new PanelInfo( this.ctrl );
 		this.add( this.info, BorderLayout.EAST );
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-	}
-	
-	public static void main(String[] args)
-	{
-		new FramePlateau();
 	}
 }

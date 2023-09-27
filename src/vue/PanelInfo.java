@@ -1,3 +1,6 @@
+package monopoly.vue;
+import monopoly.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,12 +8,15 @@ import java.awt.event.ActionListener;
 
 public class PanelInfo extends JPanel implements ActionListener
 {
+	private Controleur ctrl;
+	
 	private Image imgPlateau;
 	private JButton btnDe;
 	private JLabel lbl;
 	
-	public PanelInfo()
+	public PanelInfo( Controleur ctrl )
 	{
+		this.ctrl = ctrl;
 		this.setBackground(Color.GREEN);
 		//this.imgPlateau = getToolkit().getImage ( "plateau.png" );
 		
@@ -33,8 +39,7 @@ public class PanelInfo extends JPanel implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		Des d = new Des(1,6);
-		int[] nb = d.lancer(2);
-		this.lbl.setText(nb[0] + " " + nb[1]);
+		int[] nbs = this.ctrl.lancerDes(2);
+		this.lbl.setText(nbs[0] + " " + nbs[1]);
 	}
 }

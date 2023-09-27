@@ -1,3 +1,5 @@
+package monopoly.modele;
+
 public class Des
 {
 	private int min;

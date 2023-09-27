@@ -1,3 +1,6 @@
+package monopoly.vue;
+import monopoly.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,10 +8,13 @@ import java.awt.event.ActionListener;
 
 public class PanelPropriete extends JPanel implements ActionListener
 {
+	private Controleur ctrl;
+	
 	private Image imgPlateau;
 	
-	public PanelPropriete()
+	public PanelPropriete( Controleur ctrl )
 	{
+		this.ctrl = ctrl;
 		this.setBackground(Color.RED);
 		//this.imgPlateau = getToolkit().getImage ( "plateau.png" );
 		

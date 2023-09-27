@@ -1,5 +1,12 @@
-src/modele/Joueur.java
-src/modele/Jeu.java
-
 src/Controleur.java
+
+src/modele/Des.java
+src/modele/Jeu.java
+src/modele/Joueur.java
+
+src/vue/FramePlateau.java
+src/vue/PanelInfo.java
+src/vue/PanelPlateau.java
+src/vue/PanelPropriete.java
+
 

@@ -1,0 +1,1 @@
+package monopoly.modele.cartes;

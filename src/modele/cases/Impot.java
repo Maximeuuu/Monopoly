@@ -1,4 +1,4 @@
-package monopoly.modele.Cases;
+package monopoly.modele.cases;
 
 import monopoly.modele.Joueur;
 

@@ -1,12 +1,12 @@
-package monopoly.modele.Cases;
+package monopoly.modele.cases;
 
 import monopoly.modele.Joueur;
 
-public class Parking extends Case
+public class Prison extends Case
 {
 	
 	
-	public Parking(String nom)
+	public Prison(String nom)
 	{
 		super(nom);
 	}

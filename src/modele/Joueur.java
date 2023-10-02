@@ -1,13 +1,17 @@
 package monopoly.modele;
 
+
+
 public class Joueur 
 {
-    static int nbJoueur =0;
-    static String[] tabCouleur =  {"ROUGE","VERT","BLEU","JAUNE"};
-    String nom;
-    int argent;
-    String couleur;
-    int prison;
+    private static int nbJoueur =0;
+    private static String[] tabCouleur =  {"ROUGE","VERT","BLEU","JAUNE"};
+    
+    private String nom;
+    private String couleur;
+    
+    private int argent;
+    private int prison;
 
     public Joueur()
     {
@@ -21,13 +25,13 @@ public class Joueur
     {
     	if(this.argent < prix)
     	{
-    		this.joueur.ajouter(this.argent);
+    		joueur.ajouter(this.argent);
     		this.argent = 0;
     		return false;
     	}
     	
     	this.argent -= prix;
-    	this.joueur.ajouter(prix);
+    	joueur.ajouter(prix);
     	return true;
     }
     

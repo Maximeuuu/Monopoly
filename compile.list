@@ -1,5 +1,17 @@
 src/Controleur.java
 
+src/modele/cases/Case.java
+src/modele/cases/Police.java
+src/modele/cases/Propriete.java
+src/modele/cases/Parking.java
+src/modele/cases/Prison.java
+src/modele/cases/Gare.java
+src/modele/cases/Impot.java
+src/modele/cases/Communaute.java
+src/modele/cases/Consommation.java
+src/modele/cases/Chance.java
+src/modele/cases/Depart.java
+
 src/modele/Des.java
 src/modele/Jeu.java
 src/modele/Joueur.java

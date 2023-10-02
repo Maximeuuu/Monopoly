@@ -8,13 +8,12 @@ public class Propriete extends Case
 	private int prixAchat;
 	
 	private Joueur proprietaire;
-	private int loyer;
+	private int[] loyer;
 	
-	private int prixBatiment;
+	private int prixMaison;
 	private int nbMaison;
-	private int nbHotel;
 	
-	public Propriete(String nom, String couleur, int prixAchat, int loyer, int prixBatiment)
+	public Propriete(String nom, String couleur, int prixAchat, int prixMaison, String loyer)
 	{
 		super(nom);
 		
@@ -22,11 +21,14 @@ public class Propriete extends Case
 		this.prixAchat = prixAchat;
 		
 		this.proprietaire = null;
-		this.loyer = loyer;
 		
-		this.prixBatiment = prixBatiment;
+		this.prixMaison = prixMaison;
 		this.nbMaison = 0;
-		this.nbHotel = 0;
+		
+		this.loyer = new int[6];
+		String[] tab = loyer.split("-");
+		for(int cpt = 0; cpt < this.loyer.length; cpt++)
+			this.loyer[cpt] = Integer.parseInt( tab[cpt] );
 	}
 	
 	public void action()

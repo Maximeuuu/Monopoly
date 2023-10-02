@@ -1,0 +1,17 @@
+#Action	Valeur	Texte
+C	Depart	Avancez jusqu'à la case 'Départ'.
+C	Gare Montparnasse	Avancez jusqu'à la case 'Gare Montparnasse'. Si vous passez par la case 'Départ', touchez 200 €.
+C	Prison	Allez en prison. Avancez tout droit en prison. Ne passez pas par la case 'Départ'. Ne touchez pas 200 €.
+R	3	Reculez de trois cases.
+P	50	Payez la note du médecin : 50 €.
+P	30	Amende pour ivresse : 20 €.
+P	150	Payez pour frais de scolarité : 150 €.
+P	50	Payez l'assurance : 50 €.
+G	10	Vous avez gagné le premier prix de beauté : 10 €.
+G	10	Vous avez gagné le deuxième prix de beauté : 10 €.
+A	10 Vous avez votre anniversaire, chaque joueur doit vous donner 10 €.
+G	20	Les contributions vous remboursent la somme de 20 €.
+P	10	Payez une amende de 10 € ou tirez une carte 'Communauté'.
+P	15	Payer la taxe de voirie : 15 €.
+G	200	Erreur de la banque en votre faveur : recevez 200 €.
+C	Boulevard de la Villette	Avancez jusqu'à la case 'Boulevard de la Villette'. Si vous passez par la case 'Départ', touchez 200 €.

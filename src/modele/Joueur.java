@@ -39,4 +39,19 @@ public class Joueur
     {
     	this.argent += som;
     }
+    
+    public String getNom()
+    {
+    	return this.nom;
+    }
+    
+    public boolean equals( Joueur j )
+    {
+    	if( this.nom.equals(j.getNom()) )
+    		return true;
+    	
+    	return false;
+    }
+    
+    
 }

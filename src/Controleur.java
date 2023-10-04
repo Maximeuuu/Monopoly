@@ -16,7 +16,7 @@ public class Controleur
 	public Controleur()
 	{
 		this.ihm = new FramePlateau( this );
-		//this.jeu = new Jeu(1);
+		this.jeu = new Jeu(1);
 	}
 	
 	public int[] lancerDes( int nb )

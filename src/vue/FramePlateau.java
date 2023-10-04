@@ -35,4 +35,11 @@ public class FramePlateau extends JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
+	
+	public void repaint()
+	{
+		this.plateau.repaint();
+		this.info.repaint();
+		this.propriete.repaint();
+	}
 }

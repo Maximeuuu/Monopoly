@@ -14,6 +14,8 @@ public class PanelInfo extends JPanel implements ActionListener
 	private JButton btnDe;
 	private JLabel lbl;
 	
+	private JButton test;
+	
 	public PanelInfo( Controleur ctrl )
 	{
 		this.ctrl = ctrl;
@@ -28,6 +30,10 @@ public class PanelInfo extends JPanel implements ActionListener
 		
 		this.lbl = new JLabel("");
 		this.add(this.lbl);
+		
+		this.test = new JButton("test");
+		this.test.addActionListener(this);
+		this.add(this.test);
 	}
 	
 	/*@Override
@@ -39,7 +45,15 @@ public class PanelInfo extends JPanel implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		int[] nbs = this.ctrl.lancerDes(2);
-		this.lbl.setText(nbs[0] + " " + nbs[1]);
+		if(e.getSource() == this.btnDe )
+		{
+			int[] nbs = this.ctrl.lancerDes(2);
+			this.lbl.setText(nbs[0] + " " + nbs[1]);
+		}
+		
+		if(e.getSource() == this.test )
+		{
+			this.ctrl.deplacerJoueur(0, 1);
+		}
 	}
 }

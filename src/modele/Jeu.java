@@ -36,10 +36,15 @@ public class Jeu
 		}
 		
 		
-		System.out.println( toString() );
-		deplacerJoueur(tabJoueurs[0] , 5);
-		System.out.println( toString() );
+		//System.out.println( toString() );
+		//deplacerJoueur(tabJoueurs[0] , 5);
+		//System.out.println( toString() );
 		
+	}
+	
+	public void deplacerJoueur(int j, int d)
+	{
+		deplacerJoueur(tabJoueurs[j], d);
 	}
 	
 	public void deplacerJoueur(Joueur j, int dep)
@@ -49,19 +54,20 @@ public class Jeu
 		{
 			for(int i=0; i<c.getNbJoueur(); i++ )
 			{
-				if(c.get(i) == null)
-					System.out.println( "null" );
-				
 				if( c.get(i).equals( j ) )
 				{
-					System.out.println( "aa" );
 					c.remove(j);
-					this.plateau.get(cpt + dep).add( j );
-					break;
+					this.plateau.get( (cpt + dep) % 40).add( j );
+					return;
 				}
-			}//changer ici
+			}
 			cpt++;
 		}
+	}
+	
+	public List<Case> getPlateau()
+	{
+		return this.plateau;
 	}
 	
 	public String toString()
@@ -71,6 +77,14 @@ public class Jeu
 		for(Case c : this.plateau)
 		{
 			s += ++cpt + " : " + c.getNom() + " - " + c.getNbJoueur() + "\n";
+			if(c.getNbJoueur() != 0)
+			{
+				for(int i = 0; i < c.getNbJoueur(); i++ )
+				{
+					s += "\t" + c.get(i).getNom() + "\n";
+				}
+			}
+			
 		}
 		return s;
 	}

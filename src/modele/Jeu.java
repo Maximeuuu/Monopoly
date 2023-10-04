@@ -1,6 +1,9 @@
 package monopoly.modele;
 
-import monopoly.*;
+import monopoly.modele.cases.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Scanner;
 import java.io.FileInputStream;
@@ -22,6 +25,16 @@ public class Jeu
 		for (Joueur j : tabJoueurs){j = new Joueur();}
 
 		initialiserPlateau();
+	}
+	
+	public String toString()
+	{
+		String s = "";
+		for(Case c : this.plateau)
+		{
+			
+		}
+		return s;
 	}
 	
 	public void initialiserPlateau()

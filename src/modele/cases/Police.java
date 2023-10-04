@@ -6,10 +6,10 @@ public class Police extends Case
 {
 	private Prison prison;
 	
-	public Police(String nom, Prison prison)
+	public Police(String nom)
 	{
 		super(nom);
-		this.prison = prison;
+		//this.prison = prison;
 	}
 	
 	public void action()

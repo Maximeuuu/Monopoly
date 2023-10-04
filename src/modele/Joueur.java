@@ -60,7 +60,7 @@ public class Joueur
     	//Gestion des tours de prisons
     	if( this.prison != 0 ){ this.prison--; }
     	if( this.prison != 0 && des.desSontSimilaires() ){ this.prison = 0; }
-    	//TODO : implémenter possibilité de sortir avec une carte de sortie de prison
+    	//TODO : implémenter possibilité de sortir avec une carte de sortie de prison ou en payant
     	
     	if( this.prison == 0 )
     	{

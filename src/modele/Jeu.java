@@ -27,33 +27,35 @@ public class Jeu
 		this.plateau = new ArrayList<Case>();
 		this.des = new Des(1,6,2);
 
-		initialiserPlateau();
+		this.initialiserPlateau();
 		
 		int i = 0;
-		for (Joueur j : tabJoueurs)
+		for (Joueur j : this.tabJoueurs)
 		{
 			j = new Joueur();
-			tabJoueurs[i++] = j;
+			this.tabJoueurs[i++] = j;
 			this.plateau.get(0).add(j);
 		}
-		
-		//initialisation des dés
-		Des des = new Des(1,6,2);
-		
+
+		this.testJeu1();
+	}
+	
+	public void testJeu1()
+	{
 		//un test avec le joueur 0
-		Joueur joueurActuel = tabJoueurs[0];
+		Joueur joueurActuel = this.tabJoueurs[0];
 		System.out.println( joueurActuel.toString() );
+		
 		joueurActuel.emprisonner( 2 );
 		System.out.println( joueurActuel.toString() );
+		
 		des.lancer();
 		System.out.println( des ); 
 		joueurActuel.action( des );
 		System.out.println( joueurActuel.toString() );
-		
-		//System.out.println( toString() );
+
+		//Je ne sais pas ce que fait réellement déplacerJoueur
 		deplacerJoueur(tabJoueurs[0] , des.getSomme());
-		//System.out.println( toString() );
-		
 	}
 	
 	public void deplacerJoueur(int j, int d)

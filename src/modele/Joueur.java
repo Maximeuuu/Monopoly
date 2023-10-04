@@ -52,6 +52,19 @@ public class Joueur
     	
     	return false;
     }
+
+    /*public void action( Des des )
+    { //TODO
+    	if( this.prison != 0 ){ this.prison--; }
+    	if( des. )
+    	{
+    		
+    	}
+    }*/
     
+    public void emprisonner( int nbTours )
+    {
+		this.prison = nbTours;    
+    }
     
 }

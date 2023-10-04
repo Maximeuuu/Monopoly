@@ -23,6 +23,16 @@ public class Des
 		}
 	}
 	
+	public int[] getValeurs()
+	{
+		return this.valeurs;
+	}
+	
+	public int getValeur( int indice )
+	{
+		return this.valeurs[indice];
+	}
+	
 	public void relancer( int indice )
 	{
 		this.valeurs[indice] = this.hasard();
@@ -33,9 +43,9 @@ public class Des
 		return (int)(Math.random() * this.max ) + this.min;
 	}
 	
-	public void getSomme()
+	public int getSomme()
 	{
-		int somme;
+		int somme=0;
 		for( int cpt=0; cpt<nbDes; cpt++ )
 		{
 			somme+=valeurs[cpt];
@@ -45,7 +55,7 @@ public class Des
 	
 	public boolean desSontSimilaires()
 	{
-		int initial;
+		int initial=-1;
 		
 		if( nbDes > 0 ){ initial = this.valeurs[0]; }
 		for(int cpt=1; cpt<nbDes; cpt++)
@@ -60,7 +70,7 @@ public class Des
 		String s="Dés : ";
 		for(int cpt=0; cpt<nbDes; cpt++)
 		{
-			s+=this.valeurs[indice]+" ";
+			s+=this.valeurs[cpt]+" ";
 		}
 		return s;
 	}

@@ -25,8 +25,7 @@ public class Controleur
 	
 	public int[] lancerDes( int nb )
 	{
-		Des d = new Des(1,6);
-		return d.lancer( nb );
+		return jeu.lancerDes();
 	}
 	
 	public List<Case> getPlateau()

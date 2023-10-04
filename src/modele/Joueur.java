@@ -53,8 +53,10 @@ public class Joueur
     	return false;
     }
 
-    public void action( Des des )
+    public int action( Des des )
     {
+    	int nbCaseAvance = 0;
+    	
     	//Gestion des tours de prisons
     	if( this.prison != 0 ){ this.prison--; }
     	if( this.prison != 0 && des.desSontSimilaires() ){ this.prison = 0; }
@@ -62,13 +64,24 @@ public class Joueur
     	
     	if( this.prison == 0 )
     	{
-    		int nbCaseAvance = des.getSomme();
+    		nbCaseAvance = des.getSomme();
     	}
+    	
+    	return nbCaseAvance;
     }
     
     public void emprisonner( int nbTours )
     {
-		this.prison = nbTours;    
+		this.prison = nbTours;
+    }
+    
+    public String toString()
+    {
+    	String s="";
+    	
+    	s+=nom+" ("+couleur+") : "+argent+" ["+prison+"]";
+    	
+    	return s;
     }
     
 }

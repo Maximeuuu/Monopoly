@@ -47,8 +47,8 @@ public class PanelInfo extends JPanel implements ActionListener
 	{
 		if(e.getSource() == this.btnDe )
 		{
-			int[] nbs = this.ctrl.lancerDes(2);
-			this.lbl.setText(nbs[0] + " " + nbs[1]);
+			int[] nbs = this.ctrl.lancerDes( 2 );
+			this.lbl.setText(nbs[0] + "" + nbs[1]);
 		}
 		
 		if(e.getSource() == this.test )

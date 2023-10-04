@@ -15,6 +15,8 @@ public class Jeu
 	private Joueur[] tabJoueurs;
 	
 	private List<Case> plateau;
+	
+	private Des des;
 	//piocheChance
 	//piocheCommunauté
 	//Plateau
@@ -23,7 +25,7 @@ public class Jeu
 	{
 		this.tabJoueurs = new Joueur[n];
 		this.plateau = new ArrayList<Case>();
-		
+		this.des = new Des(1,6,2);
 
 		initialiserPlateau();
 		
@@ -35,9 +37,21 @@ public class Jeu
 			this.plateau.get(0).add(j);
 		}
 		
+		//initialisation des dés
+		Des des = new Des(1,6,2);
+		
+		//un test avec le joueur 0
+		Joueur joueurActuel = tabJoueurs[0];
+		System.out.println( joueurActuel.toString() );
+		joueurActuel.emprisonner( 2 );
+		System.out.println( joueurActuel.toString() );
+		des.lancer();
+		System.out.println( des ); 
+		joueurActuel.action( des );
+		System.out.println( joueurActuel.toString() );
 		
 		//System.out.println( toString() );
-		//deplacerJoueur(tabJoueurs[0] , 5);
+		deplacerJoueur(tabJoueurs[0] , des.getSomme());
 		//System.out.println( toString() );
 		
 	}
@@ -45,6 +59,12 @@ public class Jeu
 	public void deplacerJoueur(int j, int d)
 	{
 		deplacerJoueur(tabJoueurs[j], d);
+	}
+	
+	public int[] lancerDes()
+	{
+		this.des.lancer();
+		return des.getValeurs();
 	}
 	
 	public void deplacerJoueur(Joueur j, int dep)

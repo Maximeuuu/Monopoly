@@ -33,7 +33,17 @@ public class Des
 		return (int)(Math.random() * this.max ) + this.min;
 	}
 	
-	public boolean desSimilaires()
+	public void getSomme()
+	{
+		int somme;
+		for( int cpt=0; cpt<nbDes; cpt++ )
+		{
+			somme+=valeurs[cpt];
+		}
+		return somme;
+	}
+	
+	public boolean desSontSimilaires()
 	{
 		int initial;
 		

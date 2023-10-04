@@ -53,14 +53,18 @@ public class Joueur
     	return false;
     }
 
-    /*public void action( Des des )
-    { //TODO
+    public void action( Des des )
+    {
+    	//Gestion des tours de prisons
     	if( this.prison != 0 ){ this.prison--; }
-    	if( des. )
+    	if( this.prison != 0 && des.desSontSimilaires() ){ this.prison = 0; }
+    	//TODO : implémenter possibilité de sortir avec une carte de sortie de prison
+    	
+    	if( this.prison == 0 )
     	{
-    		
+    		int nbCaseAvance = des.getSomme();
     	}
-    }*/
+    }
     
     public void emprisonner( int nbTours )
     {

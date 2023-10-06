@@ -6,6 +6,9 @@ import monopoly.vue.*;
 
 import java.util.List;
 
+/**
+ * @author Matkim76 Maximeuuu
+ */
 public class Controleur
 {
 	private FramePlateau ihm;
@@ -23,7 +26,7 @@ public class Controleur
 		this.ihm = new FramePlateau( this );
 	}
 	
-	public int[] lancerDes( int nb )
+	public Des lancerDes()
 	{
 		return jeu.lancerDes();
 	}
@@ -38,9 +41,9 @@ public class Controleur
 		this.ihm.repaint();
 	}
 	
-	public void deplacerJoueur(int j, int d)
+	public void deplacerJoueur(int j, Des des)
 	{
-		this.jeu.deplacerJoueur(j, d);
+		this.jeu.deplacerJoueur(j, des);
 		repaint();
 		//System.out.println(this.jeu.toString());
 	}

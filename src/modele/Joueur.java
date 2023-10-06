@@ -55,6 +55,9 @@ public class Joueur
     	return false;
     }
 
+	/**
+	 * @author Maximeuuu
+	 */
     public int action( Des des )
     {
     	int nbCaseAvance = 0;
@@ -72,6 +75,9 @@ public class Joueur
     	return nbCaseAvance;
     }
     
+    /**
+	 * @author Maximeuuu
+	 */
     public void emprisonner( int nbTours )
     {
 		this.prison = nbTours;

@@ -1,11 +1,15 @@
 package monopoly.vue;
 import monopoly.Controleur;
+import monopoly.modele.Des;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Matkim76 Maximeuuu
+ */
 public class PanelInfo extends JPanel implements ActionListener
 {
 	private Controleur ctrl;
@@ -43,18 +47,25 @@ public class PanelInfo extends JPanel implements ActionListener
 		g.drawImage( this.imgPlateau, 25 ,25, 750, 750 , this);
 	}*/
 	
+	/**
+	 * @author Matkim76 Maximeuuu
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if(e.getSource() == this.btnDe )
 		{
-			int[] nbs = this.ctrl.lancerDes( 2 );
-			this.lbl.setText(nbs[0] + "" + nbs[1]);
+			Des des = this.ctrl.lancerDes();
+			this.lbl.setText( des.toString() );
+			this.ctrl.deplacerJoueur(1, des );
 		}
 		
 		if(e.getSource() == this.test )
 		{
-			this.ctrl.deplacerJoueur(1, 1);
+			Des des = new Des(1,1,1); //lance un seul dé à 1 face donc fait avancer d'une case
+			des.lancer();
 			
+			this.lbl.setText( des.toString() );
+			this.ctrl.deplacerJoueur(1, des);
 		}
 	}
 }

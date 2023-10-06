@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Matkim76
+ */
 public class PanelPropriete extends JPanel implements ActionListener
 {
 	private Controleur ctrl;

@@ -55,49 +55,58 @@ public class PanelPlateau extends JPanel implements ActionListener
 			//hmmmmmm va falloir changer
 			if(cpt / 10 == 0)
 			{
-				x = 128;
-				y = 73;
+				x = 735;
+				y = 735;
+				
+				if(cpt > 0) x -= 30;
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), cpt * -61 + x, cpt * 0 + y, 25, 25, this );
-					
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x - cpt * 61, y, 25, 25, this );
+					//System.out.println("0 " + x + " " + y);
+					//x -= 25;
 				}
 			}
 			
 			if(cpt / 10 == 1)
 			{
-				x = 128;
-				y = 73;
+				x = 35;
+				y = 735;
+				
+				if(cpt > 10) y -= 30;
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), cpt * 0 + x, cpt * -61 + y, 25, 25, this );
-					
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y - (cpt%10) * 61, 25, 25, this );
+					//System.out.println("1 " + x + " " + y);
 				}
 			}
 			
 			if(cpt / 10 == 2)
 			{
-				x = 128;
-				y = 73;
+				x = 35;
+				y = 35;
+				
+				if(cpt > 20) x += 30;
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), cpt * 61 + x, cpt * 0 + y, 25, 25, this );
-					
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x + cpt%20 * 61, y, 25, 25, this );
+					//System.out.println("2 " + x + " " + y);
 				}
 			}
 			
 			if(cpt / 10 == 3)
 			{
-				x = 128;
-				y = 73;
+				x = 735;
+				y = 35;
+				
+				if(cpt > 30) y += 30;
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), cpt * 61 + x, cpt * 61 + y, 25, 25, this );
-					
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y + cpt%30 * 61, 25, 25, this );
+					//System.out.println("3 " + x + " " + y);
 				}
 			}
 			
@@ -108,6 +117,6 @@ public class PanelPlateau extends JPanel implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		placerPionts();
+		//placerPionts();
 	}
 }

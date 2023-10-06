@@ -38,6 +38,7 @@ public class Jeu
 		}
 
 		this.testJeu1();
+		
 	}
 	
 	public void testJeu1()
@@ -45,17 +46,19 @@ public class Jeu
 		//un test avec le joueur 0
 		Joueur joueurActuel = this.tabJoueurs[0];
 		System.out.println( joueurActuel.toString() );
+		//System.out.println(toString());
 		
 		joueurActuel.emprisonner( 2 );
 		System.out.println( joueurActuel.toString() );
 		
 		des.lancer();
-		System.out.println( des ); 
+		//System.out.println( des ); 
 		joueurActuel.action( des );
 		System.out.println( joueurActuel.toString() );
 
 		//Je ne sais pas ce que fait réellement déplacerJoueur
 		deplacerJoueur(tabJoueurs[0] , des.getSomme());
+		//System.out.println(toString());
 	}
 	
 	public void deplacerJoueur(int j, int d)
@@ -80,6 +83,7 @@ public class Jeu
 				{
 					c.remove(j);
 					this.plateau.get( (cpt + dep) % 40).add( j );
+					this.plateau.get( (cpt + dep) % 40).action();
 					return;
 				}
 			}
@@ -145,7 +149,7 @@ public class Jeu
 					this.plateau.add( new Depart( parts[1] ) );
 				
 				if( s.startsWith("Police") )
-					this.plateau.add( new Police( parts[1] ) );
+					this.plateau.add( new Police( parts[1], this.plateau.get(10) ) );
 				
 				if( s.startsWith("Parking") )
 					this.plateau.add( new Parking( parts[1] ) );

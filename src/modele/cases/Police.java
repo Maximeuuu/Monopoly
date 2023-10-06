@@ -7,10 +7,10 @@ public class Police extends Case
 	private Prison prison;
 	private static final int NB_TOURS_PRISON = 3;
 	
-	public Police(String nom)
+	public Police(String nom, Case prison)
 	{
 		super(nom);
-		//this.prison = prison;
+		this.prison = (Prison)(prison);
 	}
 	
 	public void action()

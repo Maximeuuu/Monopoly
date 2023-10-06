@@ -42,5 +42,6 @@ public class Controleur
 	{
 		this.jeu.deplacerJoueur(j, d);
 		repaint();
+		//System.out.println(this.jeu.toString());
 	}
 }

@@ -53,7 +53,8 @@ public class PanelInfo extends JPanel implements ActionListener
 		
 		if(e.getSource() == this.test )
 		{
-			this.ctrl.deplacerJoueur(0, 1);
+			this.ctrl.deplacerJoueur(1, 1);
+			
 		}
 	}
 }

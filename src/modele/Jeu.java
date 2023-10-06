@@ -16,7 +16,9 @@ public class Jeu
 	private Joueur[] tabJoueurs;
 	
 	private List<Case> plateau;
-	private List<CBonus> cartesChance;
+	
+	private List<CBonus> piocheChance;
+	private List<CBonus> defausseChance;
 	
 	private Des des;
 	//piocheChance
@@ -28,8 +30,8 @@ public class Jeu
 		this.tabJoueurs = new Joueur[n];
 		this.plateau = new ArrayList<Case>();
 		
-		this.cartesChance = new ArrayList<CBonus>();
-		//this.cartesChance.shuffle();
+		this.piocheChance = new ArrayList<CBonus>();
+		this.defausseChance = new ArrayList<CBonus>();
 		
 		this.des = new Des(1,6,2);
 
@@ -71,16 +73,16 @@ public class Jeu
 		//System.out.println(toString());
 	}
 	
-	public void deplacerJoueur(int j, Des des )
-	{
-		deplacerJoueur( tabJoueurs[j], tabJoueurs[j].action(des) );
-	}
-	
 	public Des lancerDes()
 	{
 		this.des.lancer();
 		//System.out.println( this.des );
 		return this.des;
+	}
+	
+	public void deplacerJoueur(int j, Des des )
+	{
+		deplacerJoueur( tabJoueurs[j], tabJoueurs[j].action(des) );
 	}
 	
 	public void deplacerJoueur(Joueur j, int dep)
@@ -181,7 +183,7 @@ public class Jeu
 	
 	public CBonus getChance()
 	{
-		return this.cartesChance.get( (int)(Math.random() * this.cartesChance.size()) );
+		return this.piocheChance.get( (int)(Math.random() * this.piocheChance.size()) );
 	}
 	
 	public void initialiserChance()
@@ -201,13 +203,13 @@ public class Jeu
 				try
 				{
 					int test = Integer.parseInt(parts[1] );
-					this.cartesChance.add( new CBonus(parts[2], parts[0].charAt(0), test ) );
+					this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), test ) );
 				}
 				catch(NumberFormatException nfe)
 				{
 					for(Case c : this.plateau)
 						if( c.getNom().equals( parts[1] ) )
-							this.cartesChance.add( new CBonus(parts[2], parts[0].charAt(0), c ) );
+							this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), c ) );
 					
 				}
 			}

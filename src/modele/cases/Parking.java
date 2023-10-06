@@ -9,6 +9,7 @@ public class Parking extends Case
 {
 	private int gains;
 	private static final int VIDE = 0;
+	private int totalArgent;
 	
 	public Parking(String nom)
 	{

@@ -3,22 +3,22 @@ package monopoly.modele.cases;
 import monopoly.modele.Joueur;
 
 /**
- * @author Matkim76
+ * @author Matkim76 Maximeuuu
  */
 public class Depart extends Case
 {
-	
+	private static final int GAINS = 200;
 	
 	public Depart(String nom)
 	{
 		super(nom);
 	}
 	
+	/**
+	 * @author Maximeuuu
+	 */
 	public void action()
 	{
-		/*
-		for(Joueur joueur : this.tabJoueur)
-			joueur.ajouter( 5000 );
-		*/
+		this.tabJoueur.get( this.tabJoueur.size() ).ajouter( GAINS*2 );
 	}
 }

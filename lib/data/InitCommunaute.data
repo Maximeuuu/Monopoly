@@ -2,7 +2,7 @@
 P	15	Amende pour excès de vitesse : 15 €.
 P	50	Payer la note du médecin : 50 €.
 G	20	Les contributions vous remboursent la somme de 20 €.
-P?	10	Payez l'amende de 10 € ou tirez une carte 'Chance'.
+?	10	Payez l'amende de 10 € ou tirez une carte 'Chance'.
 R	3	Reculez de trois cases.
 C	Depart	Avancez jusqu'à la case 'Départ'.
 P	150	Payez pour frais de scolarité : 150 €.

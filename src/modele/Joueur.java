@@ -86,4 +86,9 @@ public class Joueur
     	return s;
     }
     
+    /*public void piocherChance()
+    {
+    	
+    }*/
+    
 }

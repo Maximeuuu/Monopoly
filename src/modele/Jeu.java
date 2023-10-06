@@ -1,6 +1,7 @@
 package monopoly.modele;
 
 import monopoly.modele.cases.*;
+import monopoly.modele.cartes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,12 @@ import java.io.FileInputStream;
 
 public class Jeu 
 {
-	private static String REPERTOIRE = "../lib/data/InitCase.data";
+	private static String REPERTOIRE = "../lib/data/";
 	
 	private Joueur[] tabJoueurs;
 	
 	private List<Case> plateau;
+	private List<CBonus> cartesChance;
 	
 	private Des des;
 	//piocheChance
@@ -25,9 +27,14 @@ public class Jeu
 	{
 		this.tabJoueurs = new Joueur[n];
 		this.plateau = new ArrayList<Case>();
+		
+		this.cartesChance = new ArrayList<CBonus>();
+		//this.cartesChance.shuffle();
+		
 		this.des = new Des(1,6,2);
 
 		this.initialiserPlateau();
+		this.initialiserChance();
 		
 		int i = 0;
 		for (Joueur j : this.tabJoueurs)
@@ -84,6 +91,11 @@ public class Jeu
 					c.remove(j);
 					this.plateau.get( (cpt + dep) % 40).add( j );
 					this.plateau.get( (cpt + dep) % 40).action();
+					
+					//temporaire
+					if( this.plateau.get( (cpt + dep) % 40).getNom().equals( "chance") )
+						System.out.println( getChance() );
+					
 					return;
 				}
 			}
@@ -120,7 +132,7 @@ public class Jeu
 		try
 		{
 			String s;
-			Scanner sc = new Scanner ( new FileInputStream ( REPERTOIRE ) );
+			Scanner sc = new Scanner ( new FileInputStream ( REPERTOIRE + "InitCase.data") );
 
 			while ( sc.hasNextLine() )
 			{
@@ -157,6 +169,43 @@ public class Jeu
 				if( s.startsWith("Prison") )
 					this.plateau.add( new Prison( parts[1] ) );
 				
+			}
+			sc.close();
+		}
+		catch (Exception e){ e.printStackTrace(); }
+	}
+	
+	public CBonus getChance()
+	{
+		return this.cartesChance.get( (int)(Math.random() * this.cartesChance.size()) );
+	}
+	
+	public void initialiserChance()
+	{
+		try
+		{
+			String s;
+			Scanner sc = new Scanner ( new FileInputStream ( REPERTOIRE + "InitChance.data") );
+
+			sc.nextLine();
+			
+			while ( sc.hasNextLine() )
+			{
+				s = sc.nextLine();
+				String[] parts = s.split("\t");
+				
+				try
+				{
+					int test = Integer.parseInt(parts[1] );
+					this.cartesChance.add( new CBonus(parts[2], parts[0].charAt(0), test ) );
+				}
+				catch(NumberFormatException nfe)
+				{
+					for(Case c : this.plateau)
+						if( c.getNom().equals( parts[1] ) )
+							this.cartesChance.add( new CBonus(parts[2], parts[0].charAt(0), c ) );
+					
+				}
 			}
 			sc.close();
 		}

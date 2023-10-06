@@ -13,8 +13,8 @@ public class Chance extends Case
 	
 	public void action()
 	{
-		/*
-		this.tabJoueur.get( this.tabJoueur.size() - 1 ).piocherChance();
-		*/
+		
+		//this.tabJoueur.get( this.tabJoueur.size() - 1 ).piocherChance();
+		
 	}
 }

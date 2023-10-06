@@ -23,9 +23,7 @@ public class Gare extends Case
 	
 	public void action()
 	{
-		/*
 		if(this.proprietaire != null)
 			this.tabJoueur.get( this.tabJoueur.size() - 1 ).payer(this.proprietaire, loyer);
-		*/
 	}
 }

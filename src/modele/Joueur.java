@@ -12,6 +12,8 @@ public class Joueur
     
     private int argent;
     private int prison;
+    
+    /*private int nbGare=0;*/
 
     public Joueur()
     {

@@ -10,7 +10,7 @@ public class Police extends Case
 	public Police(String nom)
 	{
 		super(nom);
-		//this.prison = prison;
+		this.prison = prison;
 	}
 	
 	public void action()

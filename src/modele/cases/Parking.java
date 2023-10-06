@@ -21,7 +21,7 @@ public class Parking extends Case
 	 */
 	public void action()
 	{
-		if( this.totalArgent != VIDE )
+		if( this.gains != VIDE )
 		{
 			Joueur dernierJoueur = this.tabJoueur.get( this.tabJoueur.size()-1 );
 			

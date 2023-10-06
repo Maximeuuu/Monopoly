@@ -41,6 +41,9 @@ public class Jeu
 		
 	}
 	
+	/**
+	 * @author Maximeuuu
+	 */
 	public void testJeu1()
 	{
 		//un test avec le joueur 0
@@ -61,15 +64,16 @@ public class Jeu
 		//System.out.println(toString());
 	}
 	
-	public void deplacerJoueur(int j, int d)
+	public void deplacerJoueur(int j, Des des )
 	{
-		deplacerJoueur(tabJoueurs[j], d);
+		deplacerJoueur( tabJoueurs[j], tabJoueurs[j].action(des) );
 	}
 	
-	public int[] lancerDes()
+	public Des lancerDes()
 	{
 		this.des.lancer();
-		return des.getValeurs();
+		//System.out.println( this.des );
+		return this.des;
 	}
 	
 	public void deplacerJoueur(Joueur j, int dep)

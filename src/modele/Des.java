@@ -1,5 +1,9 @@
 package monopoly.modele;
 
+/**
+ * @author Maximeuuu
+ * Modifier un truc ici peut tout changer
+ */
 public class Des
 {
 	private int min;

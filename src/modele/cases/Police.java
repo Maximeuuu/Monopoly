@@ -2,6 +2,9 @@ package monopoly.modele.cases;
 
 import monopoly.modele.Joueur;
 
+/**
+ * @author Matkim76
+ */
 public class Police extends Case
 {
 	private Prison prison;
@@ -13,6 +16,9 @@ public class Police extends Case
 		this.prison = (Prison)(prison);
 	}
 	
+	/**
+	 * @author Maximeuuu
+	 */
 	public void action()
 	{
 		this.prison.add(this.tabJoueur.get(0));

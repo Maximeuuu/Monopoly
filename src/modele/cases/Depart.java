@@ -2,6 +2,9 @@ package monopoly.modele.cases;
 
 import monopoly.modele.Joueur;
 
+/**
+ * @author Matkim76
+ */
 public class Depart extends Case
 {
 	

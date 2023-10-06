@@ -5,6 +5,9 @@ import monopoly.modele.Joueur;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * @author Matkim76
+ */
 public class Case
 {
 	//private int NB_JOUEUR = 8;

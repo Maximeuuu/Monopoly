@@ -4,6 +4,9 @@ import monopoly.Controleur;
 import javax.swing.*;
 import java.awt.BorderLayout;
 
+/**
+ * @author Matkim76
+ */
 public class FramePlateau extends JFrame
 {
 	private PanelPlateau plateau;

@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Matkim76
+ */
 public class PanelPlateau extends JPanel implements ActionListener
 {
 	private static String REP_IMAGES = "./../lib/images/";

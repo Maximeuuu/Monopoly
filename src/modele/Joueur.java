@@ -37,10 +37,24 @@ public class Joueur
     	return true;
     }
     
+    public boolean payer(int prix)
+    {
+    	if(this.argent < prix)
+    	{
+    		this.argent = 0;
+    		return false;
+    	}
+    	
+    	this.argent -= prix;
+    	return true;
+    }
+    
     public void ajouter(int som)
     {
     	this.argent += som;
     }
+    
+    
     
     public String getNom()
     {

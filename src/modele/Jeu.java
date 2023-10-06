@@ -20,10 +20,10 @@ public class Jeu
 	private List<CBonus> piocheChance;
 	private List<CBonus> defausseChance;
 	
+	private List<CBonus> piocheCommunaute;
+	private List<CBonus> defausseCommunaute;
+	
 	private Des des;
-	//piocheChance
-	//piocheCommunauté
-	//Plateau
 
 	public Jeu(int n)
 	{
@@ -33,10 +33,14 @@ public class Jeu
 		this.piocheChance = new ArrayList<CBonus>();
 		this.defausseChance = new ArrayList<CBonus>();
 		
+		this.piocheCommunaute = new ArrayList<CBonus>();
+		this.defausseCommunaute = new ArrayList<CBonus>();
+		
 		this.des = new Des(1,6,2);
 
 		this.initialiserPlateau();
 		this.initialiserChance();
+		this.initialiserCommunaute();
 		
 		int i = 0;
 		for (Joueur j : this.tabJoueurs)
@@ -85,6 +89,39 @@ public class Jeu
 		deplacerJoueur( tabJoueurs[j], tabJoueurs[j].action(des) );
 	}
 	
+	public void deplacerJoueur(Joueur j, Case dep )
+	{
+		int cpt = 0;
+		int debut = 0;
+		int fin = 0;
+		
+		for(Case c : this.plateau)
+		{
+			for(int i=0; i<c.getNbJoueur(); i++ )
+			{
+				if( c.get(i).equals( j ) )
+				{
+					c.remove(j);
+					fin = cpt;
+					
+				}
+			}
+			
+			if( dep.equals(c) )
+			{
+				dep.add( j );
+				dep.action();
+				debut = cpt;
+			}
+			
+			
+			cpt++;
+		}
+		//a voir
+		if(debut > fin) 
+			j.ajouter(Depart.GAINS);
+	}
+	
 	public void deplacerJoueur(Joueur j, int dep)
 	{
 		int cpt = 0;
@@ -98,9 +135,27 @@ public class Jeu
 					this.plateau.get( (cpt + dep) % 40).add( j );
 					this.plateau.get( (cpt + dep) % 40).action();
 					
+					//a revoir peut etre
+					if( (cpt + dep) / 40 == 1)
+						j.ajouter(Depart.GAINS);
+					
 					//temporaire
 					if( this.plateau.get( (cpt + dep) % 40).getNom().equals( "chance") )
-						System.out.println( getChance() );
+					{
+						CBonus cb = getChance();
+						cb.action(j);
+						System.out.println( cb );
+					}
+					
+					
+					if( this.plateau.get( (cpt + dep) % 40).getNom().equals( "communaute") )
+					{
+						CBonus cb = getCommunaute();
+						cb.action(j);
+						System.out.println( cb );
+					}
+					
+					System.out.println(j.toString() );
 					
 					return;
 				}
@@ -112,6 +167,15 @@ public class Jeu
 	public List<Case> getPlateau()
 	{
 		return this.plateau;
+	}
+	
+	public Case getCase(String s)
+	{
+		for(Case c : this.plateau)
+			if( c.getNom().equals( s ) )
+				return c;
+		
+		return null;
 	}
 	
 	public String toString()
@@ -203,13 +267,58 @@ public class Jeu
 				try
 				{
 					int test = Integer.parseInt(parts[1] );
-					this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), test ) );
+					this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), test, this ) );
 				}
 				catch(NumberFormatException nfe)
 				{
 					for(Case c : this.plateau)
 						if( c.getNom().equals( parts[1] ) )
-							this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), c ) );
+							this.piocheChance.add( new CBonus(parts[2], parts[0].charAt(0), c, this ) );
+					
+				}
+			}
+			sc.close();
+		}
+		catch (Exception e){ e.printStackTrace(); }
+	}
+	
+	public CBonus getCommunaute()
+	{
+		if( this.piocheCommunaute.size() == 0 )
+		{
+			this.piocheCommunaute.addAll( this.defausseCommunaute );
+			this.defausseCommunaute.removeAll( this.piocheCommunaute );
+		}
+		
+		CBonus temp = this.piocheCommunaute.remove( (int)(Math.random() * this.piocheCommunaute.size()) );
+		this.defausseCommunaute.add( temp );
+		return temp;
+	}
+	
+	public void initialiserCommunaute()
+	{
+		try
+		{
+			String s;
+			Scanner sc = new Scanner ( new FileInputStream ( REPERTOIRE + "InitCommunaute.data") );
+
+			sc.nextLine();
+			
+			while ( sc.hasNextLine() )
+			{
+				s = sc.nextLine();
+				String[] parts = s.split("\t");
+				
+				try
+				{
+					int test = Integer.parseInt(parts[1] );
+					this.piocheCommunaute.add( new CBonus(parts[2], parts[0].charAt(0), test, this ) );
+				}
+				catch(NumberFormatException nfe)
+				{
+					for(Case c : this.plateau)
+						if( c.getNom().equals( parts[1] ) )
+							this.piocheCommunaute.add( new CBonus(parts[2], parts[0].charAt(0), c, this ) );
 					
 				}
 			}

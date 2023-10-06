@@ -9,12 +9,16 @@ public class Parking extends Case
 {
 	private int gains;
 	private static final int VIDE = 0;
-	private int totalArgent;
 	
 	public Parking(String nom)
 	{
 		super(nom);
 		this.gains = VIDE;
+	}
+	
+	public void ajouterGain(int g)
+	{
+		this.gains += g;
 	}
 	
 	/**

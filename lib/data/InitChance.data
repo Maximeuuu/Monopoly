@@ -4,7 +4,7 @@ C	gare montparnasse	Avancez jusqu'à la case 'Gare Montparnasse'. Si vous passez
 C	prison	Allez en prison. Avancez tout droit en prison. Ne passez pas par la case 'Départ'. Ne touchez pas 200 €.
 R	3	Reculez de trois cases.
 P	50	Payez la note du médecin : 50 €.
-P	30	Amende pour ivresse : 20 €.
+P	20	Amende pour ivresse : 20 €.
 P	150	Payez pour frais de scolarité : 150 €.
 P	50	Payez l'assurance : 50 €.
 G	10	Vous avez gagné le premier prix de beauté : 10 €.

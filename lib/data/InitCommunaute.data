@@ -4,14 +4,14 @@ P	50	Payer la note du médecin : 50 €.
 G	20	Les contributions vous remboursent la somme de 20 €.
 ?	10	Payez l'amende de 10 € ou tirez une carte 'Chance'.
 R	3	Reculez de trois cases.
-C	Depart	Avancez jusqu'à la case 'Départ'.
+C	depart	Avancez jusqu'à la case 'Départ'.
 P	150	Payez pour frais de scolarité : 150 €.
 G	10	Vous avez gagné le deuxième prix de beauté : 10 €.
 P	50	Payez l'assurance : 50 €.
 G	100	Les contributions vous remboursent la somme de 100 €.
 P	20	Payez une amende de 20 € ou tirez une carte 'Chance'.
 R	3	Reculez de trois cases.
-C	Prison	Allez en prison. Avancez tout droit en prison. Ne passez pas par la case 'Départ'. Ne touchez pas 200 €.
+C	prison	Allez en prison. Avancez tout droit en prison. Ne passez pas par la case 'Départ'. Ne touchez pas 200 €.
 L	-	Libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.
 G	200	Erreur de la banque en votre faveur : recevez 200 €.
 G	10	Vous avez gagné le premier prix de beauté : 10 €.

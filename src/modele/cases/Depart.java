@@ -7,7 +7,7 @@ import monopoly.modele.Joueur;
  */
 public class Depart extends Case
 {
-	private static final int GAINS = 200;
+	public static final int GAINS = 200;
 	
 	public Depart(String nom)
 	{
@@ -19,6 +19,6 @@ public class Depart extends Case
 	 */
 	public void action()
 	{
-		this.tabJoueur.get( this.tabJoueur.size() ).ajouter( GAINS*2 );
+		this.tabJoueur.get( this.tabJoueur.size()-1 ).ajouter( GAINS );
 	}
 }

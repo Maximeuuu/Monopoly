@@ -1,25 +1,20 @@
 package monopoly.vue;
 import monopoly.Controleur;
-import monopoly.modele.Des;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Dimension;
 
 /**
- * @author Matkim76 Maximeuuu
+ * @author Maximeuuu
  */
-public class PanelInfo extends JPanel implements ActionListener
+public class PanelInfo extends JPanel
 {
 	private Controleur ctrl;
-	
-	private Image imgPlateau;
-	private JButton btnDe;
-	private JLabel lbl;
-	
-	private JButton test;
-	
+
+	private PanelDes panelDes;
+	//private PanelEtat panelEtat; -> afficher les infos sur une case etc
+
 	public PanelInfo( Controleur ctrl )
 	{
 		this.ctrl = ctrl;
@@ -67,5 +62,11 @@ public class PanelInfo extends JPanel implements ActionListener
 			this.lbl.setText( des.toString() );
 			this.ctrl.deplacerJoueur(1, des);
 		}
+		/*this.setBackground(Color.GRAY);
+
+		this.setPreferredSize( new Dimension(160,0) );
+
+		this.panelDes = new PanelDes( this.ctrl );
+		this.add(this.panelDes);*/
 	}
 }

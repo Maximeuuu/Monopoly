@@ -3,19 +3,19 @@ package monopoly.modele.cases;
 import monopoly.modele.Joueur;
 
 /**
- * @author Matkim76
+ * @author Matkim76 Maximeuuu
  */
 public class Police extends Case
 {
 	private Prison prison;
 	private static final int NB_TOURS_PRISON = 3;
-	
+
 	public Police(String nom, Case prison)
 	{
 		super(nom);
 		this.prison = (Prison)(prison);
 	}
-	
+
 	/**
 	 * @author Maximeuuu
 	 */

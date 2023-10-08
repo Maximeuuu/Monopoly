@@ -35,22 +35,22 @@ public class FramePlateau extends JFrame
 		
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
-		
+
 		this.setLayout( new BorderLayout() );
 		
 		this.plateau = new PanelPlateau( this.ctrl, this );
 		this.add( this.plateau, BorderLayout.CENTER );
-		
+
 		this.propriete = new PanelPropriete( this.ctrl );
 		this.add( this.propriete, BorderLayout.WEST );
 		
 		this.info = new PanelInfo( this.ctrl );
 		this.add( this.info, BorderLayout.EAST );
-		
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	
+
 	public void repaint()
 	{
 		this.plateau.repaint();

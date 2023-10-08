@@ -62,11 +62,11 @@ public class PanelInfo extends JPanel
 			this.lbl.setText( des.toString() );
 			this.ctrl.deplacerJoueur(1, des);
 		}
-		/*this.setBackground(Color.GRAY);
+		this.setBackground(Color.GRAY);
 
 		this.setPreferredSize( new Dimension(160,0) );
 
 		this.panelDes = new PanelDes( this.ctrl );
-		this.add(this.panelDes);*/
+		this.add(this.panelDes);
 	}
 }

@@ -14,14 +14,18 @@ import java.awt.event.ActionListener;
 public class PanelPlateau extends JPanel implements ActionListener
 {
 	private static String REP_IMAGES = "./../lib/images/";
+
 	private Controleur ctrl;
+	private FramePlateau frame;
 	
 	private Image imgPlateau;
 	private Graphics2D g2;
 	
-	public PanelPlateau( Controleur ctrl )
+	public PanelPlateau( Controleur ctrl, FramePlateau frame )
 	{
 		this.ctrl = ctrl;
+		this.frame = frame;
+
 		this.setBackground(Color.WHITE);
 		this.imgPlateau = getToolkit().getImage ( REP_IMAGES+"plateau.png" );
 	}
@@ -35,28 +39,102 @@ public class PanelPlateau extends JPanel implements ActionListener
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		g.drawImage( this.imgPlateau, 25 ,25, 750, 750 , this);
-		//this.g2 = (Graphics2D) g;
-		
-		//test des placements des pions
-		/*int x = 0;
-		int y= 0;
-		for(int cpt=0; cpt< 9; cpt++)
-		{
-			g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), 128 + x, 73 + y, 25, 25, this );
-			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), 159 + x, 32 + y, 25, 25, this );
-			x += 61;
-			y += 0;
-		}*/
-		
+
+		//int larg = this.frame.getLargeur();
+		//int haut = this.frame.getHauteur();
+
+		g.drawImage( this.imgPlateau, this.getWidth()/2 - this.getHeight()/2, 0, this.getHeight(), this.getHeight(), this);
+			
 		int x = 0;
 		int y= 0;
 		
 		int cpt = 0;
 		for(Case c : this.ctrl.getPlateau() )
 		{
-			//hmmmmmm va falloir changer
+			double tailleGrandeCase = (this.getHeight()/2) / 3.85;
+			double tailleCase = (this.getHeight()/2) / 6.1;
+
+			int taillePion = this.getHeight() / 35;// semble assez bien
+			//System.out.println(taillePion);
+
+			int decalage = taillePion / 2;
+		
+			int a =  this.getWidth()/2 - this.getHeight()/2 + decalage;
+			int b = 0 + decalage;
+			int e =  this.getWidth()/2 + this.getHeight()/2 - decalage - taillePion;
+			int d = this.getHeight() - decalage - taillePion;
+
+			
+			/*g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), a + 10, b + 10, taillePion, taillePion, this );
+			for(int p=0; p < 3; p++)
+				g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), a + 10, b + 10 +(int) (p * tailleCase), taillePion, taillePion, this );
+			*/
+
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), a, b, 25, 25, this );
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), e, b, 25, 25, this );
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), a, d, 25, 25, this ); //pas visible mais présent
+			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), e, d, 25, 25, this ); //pas visible mais présent
+			
+			
 			if(cpt / 10 == 0)
+			{
+				x = e;
+				y = d;
+				
+				if(cpt > 0) x -= tailleGrandeCase - tailleCase;
+				
+				for(int i=0; i<c.getNbJoueur(); i++ )
+				{
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x - (int) (cpt * tailleCase), y , taillePion, taillePion, this );
+					//méthode pour pas stack les pions
+				}
+			}
+
+			if(cpt / 10 == 1)
+			{
+				x = a;
+				y = d;
+				
+				
+				if(cpt > 10) y -= tailleGrandeCase - tailleCase;
+				
+				for(int i=0; i<c.getNbJoueur(); i++ )
+				{
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y - (int) (cpt % 10 * tailleCase) , taillePion, taillePion, this );
+					//méthode pour pas stack les pions
+				}
+			}
+			
+			if(cpt / 10 == 2)
+			{
+				x = a;
+				y = b;
+				
+				if(cpt > 20) x += tailleGrandeCase - tailleCase;
+				
+				for(int i=0; i<c.getNbJoueur(); i++ )
+				{
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x + (int) (cpt % 20 * tailleCase), y , taillePion, taillePion, this );
+					//méthode pour pas stack les pions
+				}
+			}
+			
+			if(cpt / 10 == 3)
+			{
+				x = e;
+				y = b;
+				
+				if(cpt > 30) y += tailleGrandeCase - tailleCase;
+				
+				for(int i=0; i<c.getNbJoueur(); i++ )
+				{
+					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y + (int) (cpt % 30 * tailleCase), taillePion, taillePion, this );
+					//méthode pour pas stack les pions
+				}
+			}
+
+			//hmmmmmm va falloir changer
+			/*if(cpt / 10 == 0)
 			{
 				x = 735;
 				y = 735;
@@ -111,7 +189,7 @@ public class PanelPlateau extends JPanel implements ActionListener
 					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y + cpt%30 * 61, 25, 25, this );
 					//System.out.println("3 " + x + " " + y);
 				}
-			}
+			}*/
 			
 			cpt++;
 		}

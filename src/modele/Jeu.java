@@ -127,10 +127,14 @@ public class Jeu
 		int cpt = 0;
 		for(Case c : this.plateau)
 		{
+			
 			for(int i=0; i<c.getNbJoueur(); i++ )
 			{
 				if( c.get(i).equals( j ) )
 				{
+					if(cpt + dep < 0)
+						dep = 40 - cpt + dep;
+					
 					c.remove(j);
 					this.plateau.get( (cpt + dep) % 40).add( j );
 					this.plateau.get( (cpt + dep) % 40).action();

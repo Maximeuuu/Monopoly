@@ -21,7 +21,7 @@ public class PanelPropriete extends JPanel implements ActionListener
 		this.setBackground(Color.RED);
 		//this.imgPlateau = getToolkit().getImage ( "plateau.png" );
 		
-		this.setPreferredSize( new Dimension(0,150) );
+		this.setPreferredSize( new Dimension(200,0) );
 	}
 	
 	/*@Override

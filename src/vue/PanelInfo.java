@@ -26,7 +26,7 @@ public class PanelInfo extends JPanel implements ActionListener
 		this.setBackground(Color.GREEN);
 		//this.imgPlateau = getToolkit().getImage ( "plateau.png" );
 		
-		this.setPreferredSize( new Dimension(150,0) );
+		this.setPreferredSize( new Dimension(200,0) );
 		
 		this.btnDe = new JButton("dé");
 		this.btnDe.addActionListener(this);

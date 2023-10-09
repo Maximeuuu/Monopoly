@@ -2,16 +2,22 @@ package monopoly.vue;
 import monopoly.Controleur;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
 
+import java.awt.event.*;
+
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 
 /**
  * @author Matkim76
  */
-public class FramePlateau extends JFrame
+public class FramePlateau extends JFrame implements KeyListener
 {
+	private final GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
+		
 	private PanelPlateau plateau;
 	private PanelPropriete propriete;
 	private PanelInfo info;
@@ -24,36 +30,30 @@ public class FramePlateau extends JFrame
 	{
 		this.ctrl = ctrl;
 		
-		/*Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        this.largeurEcran = (int) screenSize.getWidth();
-		System.out.println(this.largeurEcran);
-        this.hauteurEcran = (int) screenSize.getHeight();
-
-		this.setSize(this.largeurEcran, this.hauteurEcran);
-
-		this.setResizable(false);
-		this.setLocationRelativeTo(null);*/
-		
+		/* Propriétés */
 		this.setTitle("BocchiPoly");
+		this.setUndecorated(false);
+		this.setLayout( new BorderLayout() );
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		/* Activation */
+		this.setVisible(true);
+		this.addKeyListener( this );
+		
+		/* Dimensions */
 		this.setResizable(true);
 		this.setSize(1000, 600);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		
-		 this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-
-		this.setLayout( new BorderLayout() );
-		
+		/* Création des composants */
 		this.plateau = new PanelPlateau( this.ctrl, this );
-		this.add( this.plateau, BorderLayout.CENTER );
-
 		this.propriete = new PanelPropriete( this.ctrl );
-		this.add( this.propriete, BorderLayout.WEST );
-		
 		this.info = new PanelInfo( this.ctrl );
+		
+		/* Positionnement des composants */
+		this.add( this.plateau, BorderLayout.CENTER );
+		this.add( this.propriete, BorderLayout.WEST );
 		this.add( this.info, BorderLayout.EAST );
-
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
 	}
 
 	public void repaint()
@@ -71,5 +71,27 @@ public class FramePlateau extends JFrame
 	public int getHauteur()
 	{
 		return this.hauteurEcran;
+	}
+	
+	@Override
+	public void keyPressed(KeyEvent e){}
+	
+	@Override
+	public void keyTyped(KeyEvent e) {}
+
+	@Override
+	public void keyReleased(KeyEvent e)
+	{
+		if( e.getKeyCode() == KeyEvent.VK_F11 )
+		{
+			if( device.getFullScreenWindow() == null )
+			{
+				device.setFullScreenWindow(this);
+			}
+			else
+			{
+				device.setFullScreenWindow(null);
+			}
+		}
 	}
 }

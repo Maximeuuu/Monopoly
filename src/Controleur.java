@@ -47,4 +47,14 @@ public class Controleur
 		repaint();
 		//System.out.println(this.jeu.toString());
 	}
+	
+	public Joueur getJoueur(int i)
+	{
+		return this.jeu.getJoueur(i);
+	}
+	
+	public int getNbJoueur()
+	{
+		return this.jeu.getNbJoueur();
+	}
 }

@@ -21,7 +21,12 @@ src/modele/Joueur.java
 
 src/vue/UtilitaireIHM.java
 src/vue/FramePlateau.java
+src/vue/BarreMenu.java
 src/vue/PanelInfo.java
 src/vue/PanelDes.java
 src/vue/PanelPlateau.java
 src/vue/PanelPropriete.java
+src/vue/PanelJoueur.java
+src/vue/PanelLog.java
+
+

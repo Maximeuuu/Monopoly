@@ -39,14 +39,16 @@ public class FramePlateau extends JFrame implements KeyListener
 		/* Dimensions */
 		this.setResizable(true);
 		this.setSize(1000, 600);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setMinimumSize( new Dimension(1000, 600) );
 		
 		/* Création des composants */
 		this.plateau = new PanelPlateau( this.ctrl, this );
-		this.propriete = new PanelPropriete( this.ctrl );
-		this.info = new PanelInfo( this.ctrl );
+		this.propriete = new PanelPropriete( this.ctrl, this  );
+		this.info = new PanelInfo( this.ctrl, this );
 		
 		/* Positionnement des composants */
+		this.setJMenuBar( new BarreMenu( this ) );
 		this.add( this.plateau, BorderLayout.CENTER );
 		this.add( this.propriete, BorderLayout.WEST );
 		this.add( this.info, BorderLayout.EAST );
@@ -54,7 +56,9 @@ public class FramePlateau extends JFrame implements KeyListener
 		/* Activation */
 		this.addKeyListener( this );
 		this.setVisible(true);
-		this.requestFocus();
+		//this.requestFocus();
+		this.requestFocusInWindow();
+
 	}
 
 	public void repaint()
@@ -83,6 +87,7 @@ public class FramePlateau extends JFrame implements KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
+		
 		if( e.getKeyCode() == KeyEvent.VK_F11 )
 		{
 			if( device.getFullScreenWindow() == null )

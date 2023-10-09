@@ -183,6 +183,16 @@ public class Jeu
 
 		return null;
 	}
+	
+	public Joueur getJoueur(int i)
+	{
+		return this.tabJoueurs[i];
+	}
+	
+	public int getNbJoueur()
+	{
+		return this.tabJoueurs.length;
+	}
 
 	public String toString()
 	{

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  * @author Matkim76
  */
@@ -28,6 +29,8 @@ public class PanelPlateau extends JPanel implements ActionListener
 
 		this.setBackground(Color.WHITE);
 		this.imgPlateau = getToolkit().getImage ( REP_IMAGES+"plateau.png" );
+		
+		//this.setPreferredSize( new Dimension(this.frame.getWidth()/2, 0) );
 	}
 	
 	public void placerPionts() //devra prendre l ensemble des joueurs ou jsp
@@ -70,11 +73,11 @@ public class PanelPlateau extends JPanel implements ActionListener
 				g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), a + 10, b + 10 +(int) (p * tailleCase), taillePion, taillePion, this );
 			*/
 
-			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), a, b, 25, 25, this );
+			/*g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), a, b, 25, 25, this );
 			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), e, b, 25, 25, this );
 			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), a, d, 25, 25, this ); //pas visible mais présent
 			g.drawImage( getToolkit().getImage ( REP_IMAGES+"rouge.gif" ), e, d, 25, 25, this ); //pas visible mais présent
-			
+			*/
 			
 			if(cpt / 10 == 0)
 			{
@@ -86,7 +89,14 @@ public class PanelPlateau extends JPanel implements ActionListener
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
 					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x - (int) (cpt * tailleCase), y , taillePion, taillePion, this );
-					//méthode pour pas stack les pions
+					switch(i)
+					{
+						//case 3 : x -= 0;
+						case 1 : x -= (taillePion + decalage);
+						System.out.println(x);
+						//case 2 : y -= (taillePion + decalage);
+					}
+					//System.out.println(c.getNbJoueur());
 				}
 			}
 

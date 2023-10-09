@@ -36,10 +36,6 @@ public class FramePlateau extends JFrame implements KeyListener
 		this.setLayout( new BorderLayout() );
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		/* Activation */
-		this.setVisible(true);
-		this.addKeyListener( this );
-		
 		/* Dimensions */
 		this.setResizable(true);
 		this.setSize(1000, 600);
@@ -54,6 +50,11 @@ public class FramePlateau extends JFrame implements KeyListener
 		this.add( this.plateau, BorderLayout.CENTER );
 		this.add( this.propriete, BorderLayout.WEST );
 		this.add( this.info, BorderLayout.EAST );
+		
+		/* Activation */
+		this.addKeyListener( this );
+		this.setVisible(true);
+		this.requestFocus();
 	}
 
 	public void repaint()

@@ -118,7 +118,7 @@ public class Jeu
 			cpt++;
 		}
 		//a voir
-		if(debut > fin) 
+		if(debut > fin && !dep.equals( getCase("prison") ) ) 
 			j.ajouter(Depart.GAINS);
 	}
 	

@@ -18,6 +18,7 @@ public class PanelPropriete extends JPanel implements ActionListener
 	private FramePlateau frame;
 	
 	private PanelJoueur panelJoueur;
+	private PanelLog panelLog;
 	
 	public PanelPropriete( Controleur ctrl, FramePlateau frame )
 	{
@@ -29,6 +30,9 @@ public class PanelPropriete extends JPanel implements ActionListener
 		
 		this.panelJoueur = new PanelJoueur(this.ctrl);
 		this.add( this.panelJoueur, BorderLayout.NORTH );
+		
+		this.panelLog = new PanelLog(this.ctrl);
+		this.add(this.panelLog, BorderLayout.SOUTH);
 		
 		this.addComponentListener(new ComponentAdapter() {
 			@Override

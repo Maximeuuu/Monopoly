@@ -17,8 +17,9 @@ public class PanelInfo extends JPanel
 	private FramePlateau frame;
 
 	private PanelDes panelDes;
+	private PanelAchat panelAchat;
 	//private PanelEtat panelEtat; -> afficher les infos sur une case etc
-	private PanelLog panelLog;
+	
 
 	public PanelInfo( Controleur ctrl, FramePlateau frame )
 	{
@@ -42,8 +43,18 @@ public class PanelInfo extends JPanel
 		this.panelDes = new PanelDes( this.ctrl );
 		this.add(this.panelDes);
 		
-		this.panelLog = new PanelLog(this.ctrl);
-		this.add(this.panelLog);
+		this.panelAchat = new PanelAchat(this.ctrl);
+		this.add(this.panelAchat);
+	}
+	
+	public void activerAchatCase(boolean bool)
+	{
+		this.panelAchat.activerAchatCase(bool);
+	}
+	
+	public void activerAchatMaison(boolean bool)
+	{
+		this.panelAchat.activerAchatMaison(bool);
 	}
 
 }

@@ -22,7 +22,7 @@ public class Controleur
 	public Controleur()
 	{
 		
-		this.jeu = new Jeu(2);
+		this.jeu = new Jeu(2, this);
 		this.ihm = new FramePlateau( this );
 	}
 	
@@ -56,5 +56,25 @@ public class Controleur
 	public int getNbJoueur()
 	{
 		return this.jeu.getNbJoueur();
+	}
+	
+	public void acheterCase()
+	{
+		this.jeu.acheterCase();
+	}
+	
+	public void acheterMaison()
+	{
+		this.jeu.acheterMaison();
+	}
+	
+	public void activerAchatCase(boolean bool)
+	{
+		this.ihm.activerAchatCase(bool);
+	}
+	
+	public void activerAchatMaison(boolean bool)
+	{
+		this.ihm.activerAchatMaison(bool);
 	}
 }

@@ -28,5 +28,5 @@ src/vue/PanelPlateau.java
 src/vue/PanelPropriete.java
 src/vue/PanelJoueur.java
 src/vue/PanelLog.java
-
+src/vue/PanelAchat.java
 

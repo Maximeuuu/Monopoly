@@ -24,4 +24,14 @@ public class Consommation extends Case
 	{
 		
 	}
+	
+	public void setProprietaire(Joueur j)
+	{
+		this.proprietaire = j;
+	}
+	
+	public Joueur getProprietaire()
+	{
+		return this.proprietaire;
+	}
 }

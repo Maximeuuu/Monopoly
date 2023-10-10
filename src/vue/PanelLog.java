@@ -18,7 +18,7 @@ public class PanelLog extends JPanel
 		this.ctrl = ctrl;
 		this.setBackground(Color.BLUE);
 		
-		this.txtAreaLog = new JTextArea("test");
+		this.txtAreaLog = new JTextArea("test", 10, 20);
 		this.txtAreaLog.setEnabled(false);
 		
 		this.add( this.txtAreaLog );

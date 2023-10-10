@@ -68,14 +68,14 @@ public class FramePlateau extends JFrame implements KeyListener
 		this.propriete.repaint();
 	}
 
-	public int getLargeur()
+	public void activerAchatCase(boolean bool)
 	{
-		return this.largeurEcran;
+		this.info.activerAchatCase(bool);
 	}
-
-	public int getHauteur()
+	
+	public void activerAchatMaison(boolean bool)
 	{
-		return this.hauteurEcran;
+		this.info.activerAchatMaison(bool);
 	}
 	
 	@Override

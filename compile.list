@@ -4,6 +4,7 @@ src/modele/cartes/Carte.java
 src/modele/cartes/CBonus.java
 
 src/modele/cases/IPropriete.java
+src/modele/cases/IHabitable.java
 
 src/modele/cases/Case.java
 src/modele/cases/Police.java

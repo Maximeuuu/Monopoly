@@ -190,6 +190,23 @@ public class Jeu
 		this.ctrl.activerAchatCase(false);
 		this.ctrl.activerAchatMaison(false);
 		
+		if( c instanceof IPropriete )
+		{
+			IPropriete propriete = (IPropriete)c;
+			
+			if( propriete.getProprietaire() == j && c instanceof IHabitable )
+			{
+				this.ctrl.activerAchatMaison(true);
+				//IHabitable habitation = (IHabitable)c;
+			}
+			
+			if ( propriete.getProprietaire() == null )
+			{
+				this.ctrl.activerAchatCase(true);
+			}
+		}
+		
+		/*
 		try{ Propriete place    = (Propriete)   (c);
 		if( place.getProprietaire() == j )
 			{
@@ -201,31 +218,7 @@ public class Jeu
 				this.ctrl.activerAchatCase(true);
 				this.ctrl.activerAchatMaison(false);
 			}
-			}catch(Exception e){}
-		try{ Gare place         = (Gare)        (c);
-		if( place.getProprietaire() == j )
-			{
-				this.ctrl.activerAchatCase(false);
-				this.ctrl.activerAchatMaison(true);
-			}
-			else if ( place.getProprietaire() == null )
-			{
-				this.ctrl.activerAchatCase(true);
-				this.ctrl.activerAchatMaison(false);
-			}
-			}catch(Exception e){}
-		try{ Consommation place = (Consommation)(c);
-		if( place.getProprietaire() == j )
-			{
-				this.ctrl.activerAchatCase(false);
-				this.ctrl.activerAchatMaison(true);
-			}
-			else if ( place.getProprietaire() == null )
-			{
-				this.ctrl.activerAchatCase(true);
-				this.ctrl.activerAchatMaison(false);
-			}
-			}catch(Exception e){}
+			}catch(Exception e){}*/
 	}
 	
 	public void acheterCase()
@@ -237,23 +230,12 @@ public class Jeu
 			{
 				if( c.get(i).equals( this.joueurActuel ) )
 				{
-					System.out.println( "instance : " + c );
-					
 					if( c instanceof IPropriete )
 					{
 						IPropriete place = (IPropriete)(c);
 						place.setProprietaire(this.joueurActuel);
-						System.out.println( "test interfaces : " + place.getProprietaire());
+						//System.out.println( "test interfaces : " + place.getProprietaire());
 					}
-					/*
-					try{ Propriete place    = (Propriete)   (c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
-					try{ Gare place         = (Gare)        (c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
-					try{ Consommation place = (Consommation)(c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}*/
-					
-					
 				}
 			}
 		}

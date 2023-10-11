@@ -56,7 +56,7 @@ public class Jeu
 			this.plateau.get(0).add(j);
 		}
 		
-		this.joueurActuel = this.tabJoueurs[0];
+		this.joueurActuel = this.tabJoueurs[1];
 
 		//this.testJeu1();
 
@@ -237,12 +237,21 @@ public class Jeu
 			{
 				if( c.get(i).equals( this.joueurActuel ) )
 				{
+					System.out.println( "instance : " + c );
+					
+					if( c instanceof IPropriete )
+					{
+						IPropriete place = (IPropriete)(c);
+						place.setProprietaire(this.joueurActuel);
+						System.out.println( "test interfaces : " + place.getProprietaire());
+					}
+					/*
 					try{ Propriete place    = (Propriete)   (c);
 					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
 					try{ Gare place         = (Gare)        (c);
 					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
 					try{ Consommation place = (Consommation)(c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
+					place.setProprietaire(this.joueurActuel); }catch(Exception e){}*/
 					
 					
 				}

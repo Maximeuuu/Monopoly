@@ -57,7 +57,7 @@ public class FramePlateau extends JFrame implements KeyListener
 		this.addKeyListener( this );
 		this.setVisible(true);
 		//this.requestFocus();
-		this.requestFocusInWindow();
+		this.requestFocusInWindow(); //TODO : lorsqu'on appuie sur un bouton ça marche plus
 
 	}
 
@@ -87,7 +87,7 @@ public class FramePlateau extends JFrame implements KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		
+		//this.requestFocusInWindow();
 		if( e.getKeyCode() == KeyEvent.VK_F11 )
 		{
 			if( device.getFullScreenWindow() == null )

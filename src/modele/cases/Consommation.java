@@ -5,7 +5,7 @@ import monopoly.modele.Joueur;
 /**
  * @author Matkim76
  */
-public class Consommation extends Case
+public class Consommation extends Case implements IPropriete
 {
 	private int prixAchat;
 	

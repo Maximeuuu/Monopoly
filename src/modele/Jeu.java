@@ -238,13 +238,21 @@ public class Jeu
 				if( c.get(i).equals( this.joueurActuel ) )
 				{
 					try{ Propriete place    = (Propriete)   (c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
+					place.setProprietaire(this.joueurActuel); 
+					}catch(Exception e){}
 					try{ Gare place         = (Gare)        (c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
+					place.setProprietaire(this.joueurActuel); 
+					}catch(Exception e){}
 					try{ Consommation place = (Consommation)(c);
-					place.setProprietaire(this.joueurActuel); }catch(Exception e){}
+					place.setProprietaire(this.joueurActuel); 
+					}catch(Exception e){}
 					
-					
+					/*if(c instanceof Propriete)
+					{
+						Propriete place = (Propriete)(c);
+						place.setProprietaire(this.joueurActuel);
+					}*/
+						
 				}
 			}
 		}

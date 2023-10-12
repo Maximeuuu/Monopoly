@@ -5,7 +5,7 @@ import monopoly.modele.Joueur;
 /**
  * @author Matkim76
  */
-public class Gare extends Case
+public class Gare extends Case implements IPropriete
 {
 	private int prixAchat;
 	

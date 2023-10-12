@@ -34,4 +34,9 @@ public class Consommation extends Case implements IPropriete
 	{
 		return this.proprietaire;
 	}
+	
+	public int getPrix()
+	{
+		return this.prixAchat;
+	}
 }

@@ -39,6 +39,7 @@ public class PanelAchat extends JPanel implements ActionListener
 		if(e.getSource() == this.acheterCase)
 		{
 			this.ctrl.acheterCase();
+			this.acheterCase.setEnabled(false);
 		}
 		
 		if(e.getSource() == this.acheterMaison)

@@ -88,7 +88,7 @@ public class PanelPlateau extends JPanel implements ActionListener
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x - (int) (cpt * tailleCase), y , taillePion, taillePion, this );
+					g.drawImage( c.get(i).getImage(), x - (int) (cpt * tailleCase), y , taillePion, taillePion, this );
 					switch(i)
 					{
 						//case 3 : x -= 0;
@@ -110,7 +110,7 @@ public class PanelPlateau extends JPanel implements ActionListener
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y - (int) (cpt % 10 * tailleCase) , taillePion, taillePion, this );
+					g.drawImage( c.get(i).getImage(), x, y - (int) (cpt % 10 * tailleCase) , taillePion, taillePion, this );
 					//méthode pour pas stack les pions
 				}
 			}
@@ -124,7 +124,7 @@ public class PanelPlateau extends JPanel implements ActionListener
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x + (int) (cpt % 20 * tailleCase), y , taillePion, taillePion, this );
+					g.drawImage( c.get(i).getImage(), x + (int) (cpt % 20 * tailleCase), y , taillePion, taillePion, this );
 					//méthode pour pas stack les pions
 				}
 			}
@@ -138,68 +138,10 @@ public class PanelPlateau extends JPanel implements ActionListener
 				
 				for(int i=0; i<c.getNbJoueur(); i++ )
 				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y + (int) (cpt % 30 * tailleCase), taillePion, taillePion, this );
+					g.drawImage( c.get(i).getImage(), x, y + (int) (cpt % 30 * tailleCase), taillePion, taillePion, this );
 					//méthode pour pas stack les pions
 				}
 			}
-
-			//hmmmmmm va falloir changer
-			/*if(cpt / 10 == 0)
-			{
-				x = 735;
-				y = 735;
-				
-				if(cpt > 0) x -= 30;
-				
-				for(int i=0; i<c.getNbJoueur(); i++ )
-				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x - cpt * 61, y, 25, 25, this );
-					//System.out.println("0 " + x + " " + y);
-					//x -= 25;
-				}
-			}
-			
-			if(cpt / 10 == 1)
-			{
-				x = 35;
-				y = 735;
-				
-				if(cpt > 10) y -= 30;
-				
-				for(int i=0; i<c.getNbJoueur(); i++ )
-				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y - (cpt%10) * 61, 25, 25, this );
-					//System.out.println("1 " + x + " " + y);
-				}
-			}
-			
-			if(cpt / 10 == 2)
-			{
-				x = 35;
-				y = 35;
-				
-				if(cpt > 20) x += 30;
-				
-				for(int i=0; i<c.getNbJoueur(); i++ )
-				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x + cpt%20 * 61, y, 25, 25, this );
-					//System.out.println("2 " + x + " " + y);
-				}
-			}
-			
-			if(cpt / 10 == 3)
-			{
-				x = 735;
-				y = 35;
-				
-				if(cpt > 30) y += 30;
-				
-				for(int i=0; i<c.getNbJoueur(); i++ )
-				{
-					g.drawImage( getToolkit().getImage ( REP_IMAGES+"jaune.gif" ), x, y + cpt%30 * 61, 25, 25, this );
-					//System.out.println("3 " + x + " " + y);
-				}
-			}*/
 			
 			cpt++;
 		}

@@ -7,6 +7,9 @@ import monopoly.modele.cartes.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import java.util.Scanner;
 import java.io.FileInputStream;
 
@@ -48,11 +51,17 @@ public class Jeu
 		this.initialiserChance();
 		this.initialiserCommunaute();
 
-		int i = 0;
-		for (Joueur j : this.tabJoueurs)
+		
+		for (int i = 0; i< tabJoueurs.length; i++)
 		{
-			j = new Joueur();
-			this.tabJoueurs[i++] = j;
+			Joueur j = new Joueur();
+			
+			//faire en sorte que chaque joueur a son image
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Image image = toolkit.getImage("./../lib/images/pions/row-1-column-2.png");
+			
+			j.setImage(image);
+			this.tabJoueurs[i] = j;
 			this.plateau.get(0).add(j);
 		}
 		
@@ -234,6 +243,7 @@ public class Jeu
 					{
 						IPropriete place = (IPropriete)(c);
 						place.setProprietaire(this.joueurActuel);
+						this.joueurActuel.payer( place.getPrix() );
 						//System.out.println( "test interfaces : " + place.getProprietaire());
 					}
 				}

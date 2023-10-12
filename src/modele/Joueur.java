@@ -1,11 +1,13 @@
 package monopoly.modele;
 
-
+import java.awt.Image;
 
 public class Joueur 
 {
     private static int nbJoueur =0;
     private static String[] tabCouleur =  {"ROUGE","VERT","BLEU","JAUNE"};
+    
+    private Image image;
     
     private String nom;
     private String couleur;
@@ -22,6 +24,7 @@ public class Joueur
         this.prison = 0;
         this.argent = 20_000;
     }
+    
 
     public boolean payer(Joueur joueur, int prix)
     {
@@ -54,7 +57,15 @@ public class Joueur
     	this.argent += som;
     }
     
+    public void setImage(Image img)
+    {
+    	this.image = img;
+    }
     
+    public Image getImage()
+    {
+    	return this.image;
+    }
     
     public String getNom()
     {

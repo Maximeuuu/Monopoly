@@ -9,4 +9,5 @@ public interface IPropriete
 {
 	public void setProprietaire(Joueur j);
 	public Joueur getProprietaire();
+	public int getPrix();
 }

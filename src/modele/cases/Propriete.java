@@ -54,4 +54,9 @@ public class Propriete extends Case implements IPropriete, IHabitable
 	{
 		return this.proprietaire;
 	}
+	
+	public int getPrix()
+	{
+		return this.prixAchat;
+	}
 }

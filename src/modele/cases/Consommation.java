@@ -5,7 +5,7 @@ import monopoly.modele.Joueur;
 /**
  * @author Matkim76
  */
-public class Consommation extends Case
+public class Consommation extends Case implements IPropriete
 {
 	private int prixAchat;
 	
@@ -23,5 +23,15 @@ public class Consommation extends Case
 	public void action()
 	{
 		
+	}
+	
+	public void setProprietaire(Joueur j)
+	{
+		this.proprietaire = j;
+	}
+	
+	public Joueur getProprietaire()
+	{
+		return this.proprietaire;
 	}
 }

@@ -3,6 +3,9 @@ src/Controleur.java
 src/modele/cartes/Carte.java
 src/modele/cartes/CBonus.java
 
+src/modele/cases/IPropriete.java
+src/modele/cases/IHabitable.java
+
 src/modele/cases/Case.java
 src/modele/cases/Police.java
 src/modele/cases/Propriete.java
@@ -21,7 +24,12 @@ src/modele/Joueur.java
 
 src/vue/UtilitaireIHM.java
 src/vue/FramePlateau.java
+src/vue/BarreMenu.java
 src/vue/PanelInfo.java
 src/vue/PanelDes.java
 src/vue/PanelPlateau.java
 src/vue/PanelPropriete.java
+src/vue/PanelJoueur.java
+src/vue/PanelLog.java
+src/vue/PanelAchat.java
+

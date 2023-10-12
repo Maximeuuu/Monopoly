@@ -5,7 +5,7 @@ import monopoly.modele.Joueur;
 /**
  * @author Matkim76
  */
-public class Propriete extends Case
+public class Propriete extends Case implements IPropriete, IHabitable
 {
 	private String couleur;
 	private int prixAchat;
@@ -36,9 +36,22 @@ public class Propriete extends Case
 	
 	public void action()
 	{
-		/*
+		
 		if(this.proprietaire != null)
-			this.tabJoueur.get( this.tabJoueur.size() - 1 ).payer(this.proprietaire, loyer);
-		*/
+			this.tabJoueur.get( this.tabJoueur.size() - 1 ).payer(this.proprietaire, loyer[this.nbMaison]);
+		else
+		{
+			//this.tabJoueur.get( this.tabJoueur.size() - 1 );
+		}
+	}
+	
+	public void setProprietaire(Joueur j)
+	{
+		this.proprietaire = j;
+	}
+	
+	public Joueur getProprietaire()
+	{
+		return this.proprietaire;
 	}
 }

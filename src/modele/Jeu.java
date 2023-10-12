@@ -1,5 +1,6 @@
 package monopoly.modele;
 
+import monopoly.Controleur;
 import monopoly.modele.cases.*;
 import monopoly.modele.cartes.*;
 
@@ -13,7 +14,10 @@ public class Jeu
 {
 	private static String REPERTOIRE = "../lib/data/";
 
+	private Controleur ctrl;
+	
 	private Joueur[] tabJoueurs;
+	private Joueur joueurActuel;
 
 	private List<Case> plateau;
 
@@ -25,8 +29,10 @@ public class Jeu
 
 	private Des des;
 
-	public Jeu(int n)
+	public Jeu(int n, Controleur ctrl)
 	{
+		this.ctrl = ctrl;
+		
 		this.tabJoueurs = new Joueur[n];
 		this.plateau = new ArrayList<Case>();
 
@@ -49,15 +55,17 @@ public class Jeu
 			this.tabJoueurs[i++] = j;
 			this.plateau.get(0).add(j);
 		}
+		
+		this.joueurActuel = this.tabJoueurs[1];
 
-		this.testJeu1();
+		//this.testJeu1();
 
 	}
 
 	/**
 	 * @author Maximeuuu
 	 */
-	public void testJeu1()
+	/*public void testJeu1()
 	{
 		//un test avec le joueur 0
 		Joueur joueurActuel = this.tabJoueurs[0];
@@ -75,7 +83,7 @@ public class Jeu
 		//Je ne sais pas ce que fait réellement déplacerJoueur
 		deplacerJoueur(tabJoueurs[0] , des.getSomme());
 		//System.out.println(toString());
-	}
+	}*/
 
 	/**
 	 * @author Maximeuuu
@@ -114,13 +122,15 @@ public class Jeu
 				dep.add( j );
 				dep.action();
 				debut = cpt;
+				
+				accesBouton(j, c);
 			}
 
 
 			cpt++;
 		}
-		//a voir
-		if(debut > fin)
+		
+		if(debut > fin && !dep.equals( getCase("prison") ) ) 
 			j.ajouter(Depart.GAINS);
 	}
 
@@ -162,12 +172,78 @@ public class Jeu
 					}
 
 					System.out.println(j.toString() );
+					
+					accesBouton(j, this.plateau.get( (cpt + dep) % 40));
+					
 
 					return;
 				}
 			}
 			cpt++;
 		}
+	}
+	
+	//permet d'activer ou bloquer les btn achats
+	//surement a modifier car bruh
+	public void accesBouton(Joueur j, Case c)
+	{
+		this.ctrl.activerAchatCase(false);
+		this.ctrl.activerAchatMaison(false);
+		
+		if( c instanceof IPropriete )
+		{
+			IPropriete propriete = (IPropriete)c;
+			
+			if( propriete.getProprietaire() == j && c instanceof IHabitable )
+			{
+				this.ctrl.activerAchatMaison(true);
+				//IHabitable habitation = (IHabitable)c;
+			}
+			
+			if ( propriete.getProprietaire() == null )
+			{
+				this.ctrl.activerAchatCase(true);
+			}
+		}
+		
+		/*
+		try{ Propriete place    = (Propriete)   (c);
+		if( place.getProprietaire() == j )
+			{
+				this.ctrl.activerAchatCase(false);
+				this.ctrl.activerAchatMaison(true);
+			}
+			else if ( place.getProprietaire() == null )
+			{
+				this.ctrl.activerAchatCase(true);
+				this.ctrl.activerAchatMaison(false);
+			}
+			}catch(Exception e){}*/
+	}
+	
+	public void acheterCase()
+	{
+		int cpt = 0;
+		for(Case c : this.plateau)
+		{
+			for(int i=0; i<c.getNbJoueur(); i++ )
+			{
+				if( c.get(i).equals( this.joueurActuel ) )
+				{
+					if( c instanceof IPropriete )
+					{
+						IPropriete place = (IPropriete)(c);
+						place.setProprietaire(this.joueurActuel);
+						//System.out.println( "test interfaces : " + place.getProprietaire());
+					}
+				}
+			}
+		}
+	}
+	
+	public void acheterMaison()
+	{
+		
 	}
 
 	public List<Case> getPlateau()
@@ -182,6 +258,16 @@ public class Jeu
 				return c;
 
 		return null;
+	}
+	
+	public Joueur getJoueur(int i)
+	{
+		return this.tabJoueurs[i];
+	}
+	
+	public int getNbJoueur()
+	{
+		return this.tabJoueurs.length;
 	}
 
 	public String toString()
